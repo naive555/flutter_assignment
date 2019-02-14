@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'ui/loginScreen.dart';
 import 'ui/registerScreen.dart';
 import 'main_tab_screen.dart';
 import 'ui/first_screen.dart';
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       //home: MyHomePage(title: 'Flutter Demo Home Page'),
       initialRoute: "/",
       routes: {
-        "/": (context) => MainTabScreen(),
+        "/": (context) => MyCustomForm(),
         "/second": (context) => SecondScreen(),
         // "/third": (context) => LoginScreen(),
       },

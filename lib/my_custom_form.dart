@@ -13,35 +13,35 @@ class MyCustomFormState extends State<MyCustomForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Custom Form"),
-      ),
       body: Form(
         key: _formKey,
         child: ListView(
+          padding: EdgeInsets.all(50.0),
           children: <Widget>[
             Image.asset(
-              "resources/Lighthouse.jpg",
-              height: 100,
+              "resources/healthy.jpg",
+              height: 200,
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "Email",
-                hintText: "Please Input Your Email",
-                icon: Icon(Icons.email),
+                labelText: "UserId",
+                hintText: "Please Enter Your UserID",
+                icon: Icon(Icons.person),
               ),
-              keyboardType: TextInputType.emailAddress,
+              keyboardType: TextInputType.text,
               onSaved: (value) => print(value),
               validator: (value){
                 if(value.isEmpty){
-                  return "Please Input value";
+                  return "กรุณาระบุ User or Password";
+                }else if(value == "admin"){
+                  return "User or Password ไม่ถูกต้อง";
                 }
               },
             ),
             TextFormField(
               decoration: InputDecoration(
                 labelText: "Password",
-                hintText: "Please Input Your Password",
+                hintText: "Please Enter Your Password",
                 icon: Icon(Icons.lock),
               ),
               obscureText: true,
@@ -49,12 +49,14 @@ class MyCustomFormState extends State<MyCustomForm> {
               onSaved: (value) => print(value),
               validator: (value){
                 if(value.isEmpty){
-                  return "Please Input value";
+                  return "กรุณาระบุ User or Password";
+                }else if(value == "admin"){
+                  return "User or Password ไม่ถูกต้อง";
                 }
               },
             ),
             RaisedButton(
-              child: Text("Continue"),
+              child: Text("Login".toUpperCase()),
               onPressed: (){
                 _formKey.currentState.validate();
               },
