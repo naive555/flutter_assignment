@@ -9,17 +9,9 @@ class MainTabScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            bottom: TabBar(
-              tabs: <Widget>[
-                Tab(icon: Icon(Icons.dashboard)),
-                Tab(icon: Icon(Icons.notifications)),
-                Tab(icon: Icon(Icons.explore)),
-                Tab(icon: Icon(Icons.person)),
-                Tab(icon: Icon(Icons.settings)),
-              ],
-            ),
             title: Text('Home'),
           ),
+          backgroundColor: Colors.white,
           body: TabBarView(
             children: <Widget>[
               Center(child: new Text('Home')),
@@ -28,6 +20,16 @@ class MainTabScreen extends StatelessWidget {
               Center(child: new Text('Profile')),
               Center(child: new Text('Setup')),
             ],
+          ),
+          bottomNavigationBar: TabBar(
+              tabs: <Widget>[
+                Tab(icon: Icon(Icons.dashboard)),
+                Tab(icon: Icon(Icons.notifications)),
+                Tab(icon: Icon(Icons.explore)),
+                Tab(icon: Icon(Icons.person)),
+                Tab(icon: Icon(Icons.settings)),
+              ],
+              indicatorColor: Colors.blue,
           ),
         ),
       ),
