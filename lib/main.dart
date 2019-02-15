@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ui/registerScreen.dart';
 import 'main_tab_screen.dart';
-import 'ui/first_screen.dart';
-import 'ui/second_screen.dart';
 import 'ui/loginScreen.dart';
 
 void main() => runApp(MyApp());

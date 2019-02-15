@@ -9,18 +9,19 @@ class RegisterScreen extends StatefulWidget {
 
 class RegisterFormState extends State<RegisterScreen> {
   final emailController = new TextEditingController();
-  final passwordController = new TextEditingController();
-  final snackBar = SnackBar(content: Text('Yay! A SnackBar!'));
-  final _regKey = GlobalKey<FormState>();
+  final passwordController_1 = new TextEditingController();
+  final passwordController_2 = new TextEditingController();
+  final _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context){
-    return Scaffold(
+    return new Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         centerTitle: true,
         title: Text("Register"),
       ),
       body: Form(
-        key: _regKey,
         child: ListView(
           padding: EdgeInsets.all(30.0),
           children: <Widget>[
@@ -31,46 +32,36 @@ class RegisterFormState extends State<RegisterScreen> {
                 icon: Icon(Icons.email),
               ),
               keyboardType: TextInputType.emailAddress,
-              onSaved: (value) => print(value),
-              validator: (value){
-                if(value.isEmpty){
-                  return "กรุณาระบุข้อมูลให้ครบถ้วน";
-                } else if(value == "admin"){
-                  return "user นี้มีอยู่ในระบบแล้ว";
-                }
-              }
             ),
             TextFormField(
-              controller: passwordController,
+              controller: passwordController_1,
               decoration: InputDecoration(
                 labelText: "Enter Your Password",
                 icon: Icon(Icons.lock),
               ),
+              obscureText: true,
               keyboardType: TextInputType.text,
-              onSaved: (value) => print(value),
-              validator: (value){
-                if(value.isEmpty){
-                  return "กรุณาระบุข้อมูลให้ครบถ้วน";
-                }
-              }
             ),
             TextFormField(
+              controller: passwordController_2,
               decoration: InputDecoration(
                 labelText: "Please Confirm Your Password",
                 icon: Icon(Icons.lock),
               ),
+              obscureText: true,
               keyboardType: TextInputType.text,
-              onSaved: (value) => print(value),
-              validator: (value){
-                if(value.isEmpty){
-                  return "กรุณาระบุข้อมูลให้ครบถ้วน";
-                }
-              }
             ),
             RaisedButton(
-              child: Text("Continue".toUpperCase()),
+              child: Text("Continue".toUpperCase(), style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
               onPressed: (){
-                if(_regKey.currentState.validate() == true){
+                if(emailController.text.isEmpty || passwordController_1.text.isEmpty || passwordController_2.text.isEmpty){
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("กรุณาระบุข้อมูลให้ครบถ้วน")));
+                } else if(emailController.text == "admin") {
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Email นี้มีอยู่ในระบบแล้ว")));
+                } else if(passwordController_1.text != passwordController_2.text) {
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Password ไม่ตรงกัน")));
+                } else{
                   Navigator.pop(context);
                 }
               },
