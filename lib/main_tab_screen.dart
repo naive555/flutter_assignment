@@ -29,15 +29,6 @@ class MainTabScreen extends StatelessWidget {
               Center(child: new Text('Setup')),
             ],
           ),
-          bottomNavigationBar: new Column(
-            children: <Widget>[
-              Tab(icon: Icon(Icons.dashboard)),
-              Tab(icon: Icon(Icons.notifications)),
-              Tab(icon: Icon(Icons.explore)),
-              Tab(icon: Icon(Icons.person)),
-              Tab(icon: Icon(Icons.settings)),
-            ],
-          ),
         ),
       ),
     );

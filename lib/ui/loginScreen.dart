@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../main_tab_screen.dart';
+import 'registerScreen.dart';
 
 class MyCustomForm extends StatefulWidget {
   @override
@@ -28,13 +30,13 @@ class MyCustomFormState extends State<MyCustomForm> {
                 hintText: "Please Enter Your UserID",
                 icon: Icon(Icons.person),
               ),
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.emailAddress,
               onSaved: (value) => print(value),
               validator: (value){
                 if(value.isEmpty){
-                  return "กรุณาระบุ User or Password";
+                  return 'กรุณาระบุ User or Password';
                 }else if(value == "admin"){
-                  return "User or Password ไม่ถูกต้อง";
+                  return "User ไม่ถูกต้อง";
                 }
               },
             ),
@@ -51,16 +53,28 @@ class MyCustomFormState extends State<MyCustomForm> {
                 if(value.isEmpty){
                   return "กรุณาระบุ User or Password";
                 }else if(value == "admin"){
-                  return "User or Password ไม่ถูกต้อง";
+                  return "Password ไม่ถูกต้อง";
                 }
               },
             ),
             RaisedButton(
               child: Text("Login".toUpperCase()),
               onPressed: (){
-                _formKey.currentState.validate();
+                if(_formKey.currentState.validate() == true){
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => MainTabScreen()));
+                }// else{
+                //   Scaffold.of(context).showSnackBar(SnackBar(content: Text('กรุณาระบุuser or password')));
+                // }
               },
             ),
+            FlatButton(
+              child: Text("Register New Account"),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => RegisterScreen()));
+              },
+            )
           ],
         ),
       ),

@@ -3,7 +3,7 @@ import 'ui/registerScreen.dart';
 import 'main_tab_screen.dart';
 import 'ui/first_screen.dart';
 import 'ui/second_screen.dart';
-import 'my_custom_form.dart';
+import 'ui/loginScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,8 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => MyCustomForm(),
-        "/second": (context) => SecondScreen(),
-        // "/third": (context) => LoginScreen(),
+        "/second": (context) => MainTabScreen(),
       },
     );
   }
