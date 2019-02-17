@@ -24,7 +24,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           children: <Widget>[
             Image.asset(
               "resources/healthy.jpg",
-              height: 200,
+              height: 150,
             ),
             TextFormField(
               controller: emailController,
@@ -59,7 +59,11 @@ class MyCustomFormState extends State<MyCustomForm> {
               },
             ),
             FlatButton(
-              child: Text("Register New Account"),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Text("Register New Account", style: TextStyle(color: Colors.green)),
+              ),
+              // child: Text("Register New Account", style: TextStyle(color: Colors.green)),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context) => RegisterScreen()));

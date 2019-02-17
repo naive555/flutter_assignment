@@ -21,15 +21,25 @@ class MainTabScreen extends StatelessWidget {
               Center(child: new Text('Setup')),
             ],
           ),
-          bottomNavigationBar: TabBar(
-              tabs: <Widget>[
-                Tab(icon: Icon(Icons.dashboard)),
-                Tab(icon: Icon(Icons.notifications)),
-                Tab(icon: Icon(Icons.explore)),
-                Tab(icon: Icon(Icons.person)),
-                Tab(icon: Icon(Icons.settings)),
-              ],
-              indicatorColor: Colors.blue,
+          bottomNavigationBar: new Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+              new Material(
+                color: Theme
+                  .of(context)
+                  .primaryColor,
+              child: new TabBar(
+                  tabs: <Widget>[
+                    Tab(icon: Icon(Icons.view_quilt)),
+                    Tab(icon: Icon(Icons.notifications)),
+                    Tab(icon: Icon(Icons.explore)),
+                    Tab(icon: Icon(Icons.person)),
+                    Tab(icon: Icon(Icons.settings)),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
