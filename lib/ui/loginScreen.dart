@@ -63,7 +63,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                 alignment: Alignment.bottomRight,
                 child: Text("Register New Account", style: TextStyle(color: Colors.green)),
               ),
-              // child: Text("Register New Account", style: TextStyle(color: Colors.green)),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context) => RegisterScreen()));
