@@ -58,7 +58,7 @@ class RegisterFormState extends State<RegisterScreen> {
                 if(emailController.text.isEmpty || passwordController_1.text.isEmpty || passwordController_2.text.isEmpty){
                   _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("กรุณาระบุข้อมูลให้ครบถ้วน")));
                 } else if(emailController.text == "admin") {
-                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Email นี้มีอยู่ในระบบแล้ว")));
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("User นี้มีอยู่ในระบบแล้ว")));
                 } else if(passwordController_1.text != passwordController_2.text) {
                   _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Password ไม่ตรงกัน")));
                 } else{

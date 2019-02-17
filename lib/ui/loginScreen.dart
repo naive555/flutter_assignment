@@ -49,9 +49,9 @@ class MyCustomFormState extends State<MyCustomForm> {
               child: Text("Login".toUpperCase()),
               onPressed: (){
                 if(emailController.text.isEmpty || passwordController.text.isEmpty){
-                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("กรุณาระบุ User หรือ Password")));
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("กรุณาระบุ User or Password")));
                 } else if(emailController.text == "admin" && passwordController.text == "admin") {
-                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("User หรือ Password ไม่ถูกต้อง")));
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("User or Password ไม่ถูกต้อง")));
                 } else{
                    Navigator.push(context, MaterialPageRoute(
                     builder: (context) => MainTabScreen()));
